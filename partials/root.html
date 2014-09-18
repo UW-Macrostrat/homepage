@@ -1,9 +1,36 @@
-<div class="main">
-  <h1>macrostrat.org</h1>
-  <p>Coming soon...</p>
-</div>
-<div class="stats">
-  <h4 ng-repeat="stat in stats.data">{{stat.project}}</h4>
-</div>
+<div class="container-fluid">
+  <div class="row slide main">
+    <div class="col-xs-12 slide-container">
+      <div class="slide-content">
+        <div class="title">
+          <h1 class="big">macrostrat.org</h1>
+          <p>A clever tagline about macrostratigraphy</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<a href="#/api">API</a>
+  <div class="row slide stats">
+    <div class="col-xs-12 slide-container">
+      <div class="slide-content">
+        <div class="row">
+          <div class="col-sm-3" ng-repeat="stat in stats.data">
+            <h3>{{stat.project}}</h3>
+            <p><strong>Packages:</strong> {{stat.packages}}<br>
+               <strong>Units:</strong> {{stat.units}}<br>
+               <strong>Fossil Collections:</strong> {{stat.pbdb_collections}}
+            </p>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row slide">
+    <div class="col-xs-12 slide-container">
+      <div class="slide-content">
+        <h1>another section</h1>
+      </div>
+    </div>
+  </div>
+</div>
