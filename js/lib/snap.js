@@ -493,7 +493,6 @@
                 utils.klass.add(doc.body, 'snapjs-right');
                 action.translate.easeTo(settings.minPosition);
             }
-            console.log(settings.minPosition)
         };
         this.close = function() {
             utils.dispatchEvent('close');

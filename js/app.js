@@ -1,113 +1,54 @@
-(function() {
-  angular.module("macrostrat", ["ngRoute", "snap", "angular-carousel"])
-    .config(function($routeProvider, snapRemoteProvider) {
-      $routeProvider
-        .when("/", {
-          controller: 'RootController',
-          templateUrl: "partials/root.html"
-        })
-        .when("/contact", {
-          controller: 'ContactController',
-          templateUrl: "partials/contact.html"
-        })
-        .when("/search", {
-          controller: 'SearchController',
-          templateUrl: "partials/search.html"
-        })
-        .when("/publications", {
-          controller: 'PublicationsController',
-          templateUrl: "partials/publications.html"
-        })
-        .when("/api", {
-          controller: 'ApiController',
-          templateUrl: "partials/api.html"
-        })
-        .otherwise({
-          redirectTo: "/"
-        });
-    })
+  /* Via http://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript */
+  function is_touch_device() {
+    return 'ontouchstart' in window || 'onmsgesturechange' in window;
+  };
+  $(document).ready(function() {
+    if (is_touch_device()) {
+      $(".carousel-control").hide();
+      // hacky mchackerson
+      $("[data-slide-to=0]").click();
+    }
+  });
+    
 
-    .controller('MainCtrl', function($scope, snapRemote, $window) {
-      $scope.snapperOpen = false;
-      $scope.atTop = true;
+  var snapper = new Snap({
+    element: document.getElementById("snapContent"),
+    disable: 'left',
+    touchToDrag: false
+  });
 
-      snapRemote.getSnapper().then(function(snapper) {
-        
-        snapper.on('open', function() {
-          $scope.snapperOpen = true;
-          var snapContent = document.getElementById("snapContent"),
-              style = window.getComputedStyle(snapContent),
-              transform = style.getPropertyValue("transform");
-        });
-        
-        snapper.on('close', function() {
-          $scope.snapperOpen = false;
-        });
-        snapper.on("animating", function() {
-          $(".navbar-fixed-top").css("visibility", "hidden");
-        });
-        snapper.on('animated', function() {
-          $(".navbar-fixed-top").css("transform", $("snap-content").css("transform"));
-          $(".navbar-fixed-top").css("visibility", "visible");
-        });
-      });
+  $("#openRight").click(function() {
+    if (snapper.state().state === "right") {
+      snapper.close();
+    } else {
+      snapper.open("right");
+    }
+  });
 
-      angular.element($window).bind("resize", function() {
-        if ($scope.snapperOpen) {
-          snapRemote.getSnapper().then(function(snapper) {
-            snapper.close();
-          });
-        }
-      });
+  $(".drawer-menu").click(function() {
+    snapper.close();
+  });
 
-      document.getElementById("snapContent").addEventListener("scroll", function(e) {
-        if (e.target.scrollTop > 140) {
-          $scope.atTop = false;
-        } else {
-          $scope.atTop = true;
-        }
-        $scope.$apply();
-      });
+  var checkWindowSize = (function checkWindowSizeF() {
+    if (window.innerWidth > 768) {
+      if (snapper.state().state === "right") {
+        snapper.close();
+      }
+      snapper.disable();
+    } else {
+      snapper.enable();
+    }
+    return checkWindowSizeF;
+  }());
 
-      // Close the snap drawer when an item is chosen
-      $scope.close = function() {
-        snapRemote.getSnapper().then(function(snapper) {
-          snapper.close();
-        });
-      };
+  $(window).on("resize", checkWindowSize);
 
-    })
+  $.getJSON("http://dev.macrostrat.org/api/stats?all", function(data) {
+    for (var i = 0; i < data.success.data.length; i++) {
+      var place = data.success.data[i].project.toLowerCase().replace(" ", "-");
+      $("#" + place + "-stats").html(data.success.data[i].packages + " packages. " + data.success.data[i].units + " units. " + data.success.data[i].pbdb_collections + " collections.");
+    }
+  });
 
-    .controller("RootController", ['$scope', '$http', '$log', function($scope, $http, $log) {
-      $scope.stats = {
-        data: [ ]
-      };
-
-      $http.get("http://dev.macrostrat.org/api/stats?all")
-        .error(function(error) {
-          $log.error(error);
-        })
-        .success(function(data) {
-          $scope.stats.data = data.success.data;
-        });
-    }])
-
-    .controller("ContactController", function($http, $log, $scope) {
-      $scope.atTop = false;
-      $log.log("Works on contact");
-    })
-
-    .controller("SearchController", function($http, $log) {
-      $log.log("Works on search")
-    })
-
-    .controller("PublicationsController", function($http, $log) {
-      $log.log("Works on publications");
-    })
-
-    .controller("ApiController", function($http, $log) {
-      $log.log("Works on api");
-    });
-})();
 
 

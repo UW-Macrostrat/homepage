@@ -6,9 +6,25 @@
     <title>macrostrat.org</title>
     <link href="http://fonts.googleapis.com/css?family=Maven+Pro&text=macrostrat.org" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="css/angular-snap.css" rel="stylesheet" type="text/css">
-    <link href="css/angular-carousel.min.css" rel="stylesheet" type="text/css">
+    <link href="css/snap.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-touch-carousel.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+    .container-fluid {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .scrollable{
+      overflow: auto;
+      -webkit-transition-property: top, bottom;
+      transition-property: top, bottom;
+      -webkit-transition-duration: .2s, .2s;
+      transition-duration: .2s, .2s;
+      -webkit-transition-timing-function: linear, linear;
+      transition-timing-function: linear, linear;
+      -webkit-overflow-scrolling: touch;
+    }
     .footer {
       display: block;
       bottom: 0;
@@ -27,12 +43,13 @@
       background-color: rgba(0,0,0,0);
       border: none;
     }
-    .far-from-top {
-      margin-top: 60px;
+    .snap-drawers {
+      top: 50px;
     }
     .close-to-top {
       margin-top: 0;
       background-color: #015EAB;
+      opacity: 0.92;
     }
     #second-nav {
       background-color: #193441;
@@ -72,6 +89,7 @@
     }
     .snap-drawer-right {
       background-color: #015EAB;
+      opacity: 0.92;
     }
     .drawer-menu {
       background-color: #015EAB;
@@ -118,6 +136,7 @@
       height: 100%;
      /* text-align: center; */
       display: table;
+      padding: 0;
     }
     .slide-content {
       display: table-cell;
@@ -156,26 +175,115 @@
       display: table-cell;
       vertical-align: middle;
     }
+
+    .slideshow > .slide-container {
+      display: block;
+    }
+    .slideshow > .slide-container > .slide-content {
+      display: block;
+    }
+
+
+    .carousel, .item, .active {
+      height: 100%;
+    }
+    .carousel-inner {
+      height: 100%;
+    }
+    .carousel-caption {
+      z-index: 10;
+    }
+    .carousel .item {
+      background-color: #777;
+    }
+
+    .carousel .carousel-inner .bg {
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+
+    .carousel-inner > .item > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      height: 100%;
+    }
+
+    .carousel-ctrl {
+      position: absolute;
+      top: 41%;
+      z-index: 5;
+      display: inline-block;
+    }
+
+    .carousel-ctrl-right {
+      right: 17%;
+    }
+
+    .carousel-ctrl-left {
+      left: 17%;
+    }
+
+    .north-america {
+      background-image: url("img/field_shots/pentagon3.jpg");
+    }
+    .caribbean {
+      background-image: url("img/caribbean.jpg");
+    }
+    .new-zealand {
+      background-image: url("img/new_zealand.jpg");
+    }
+    .deep-sea {
+      background-image: url("img/deep_sea.jpg");
+    }
+
+    .carousel-slide-title {
+      font-size: 55px;
+    }
+    .carousel-slide-stats {
+      font-size: 20px;
+    }
+
+     .slide-content-padded {
+      padding-left: 2em;
+     }
+
+     .attribution {
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      text-align: center;
+      right: 0;
+      bottom: 0;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 5px;
+      border: 1px solid #eee;
+      border-radius: 50%;
+      color: #eee;
+      z-index: 500;
+     }
     </style>
   </head>
-  <body ng-controller="MainCtrl">
+  <body>
 
     <!-- Small screen sidebar -->
-    <snap-drawers>
-      <div snap-drawer="right">
+    <div class="snap-drawers">
+      <div class="snap-drawer snap-drawer-right">
         <ul class="nav drawer">
-          <li class="drawer-menu"><a href="#/api" ng-click="close()">API</a></li>
-          <li class="drawer-menu"><a href="#/contact" ng-click="close()">Contact</a></li>
-          <li class="drawer-menu"><a href="#/publications" ng-click="close()">Publications</a></li>
+          <li class="drawer-menu"><a href="#api">API</a></li>
+          <li class="drawer-menu"><a href="#contact">Contact</a></li>
+          <li class="drawer-menu"><a href="#publications">Publications</a></li>
         </ul>  
       </div>
-    </snap-drawers>
+    </div>
 
     <!-- Large screen navbar -->
     <div class="navbar navbar-default navbar-fixed-top close-to-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" snap-toggle="right">
+          <button type="button" class="navbar-toggle collapsed toggler" id="openRight">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -184,38 +292,137 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#/api">API</a></li>
-            <li><a href="#/contact">Contact</a></li>
-            <li><a href="#/publications">Publications</a></li>
+            <li><a href="#api">API</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#publications">Publications</a></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <snap-content snap-options="{touchToDrag:false,tapToClose:false}" id="snapContent">
+    <div id="snapContent" class="snap-content scrollable">
    
-      <!-- Page content goes here -->
-      <div ng-view id="view"></div>
-
-      <div class="row footer">
-        <div class="container">
-          <div class="col-xs-12 funding">
-            <p>Current funding sources go here.</p>
+      <div class="container-fluid">
+        <div class="row slide main">
+          <div class="col-xs-12 slide-container">
+            <div class="slide-content slide-content-padded">
+              <div class="title">
+                <h1 class="big">macrostrat.org</h1>
+                <p>A clever tagline about macrostratigraphy</p>
+              </div>
+            </div>
           </div>
         </div>
+
+        <div id="myCarousel" class="carousel" data-ride="carousel">
+          <!-- Indicators-->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+          </ol>
+           
+          <div class="carousel-inner">
+            <div class="item bg north-america active">
+              <div class="container-fluid">
+                <div class="carousel-caption">
+                  <h1 class="carousel-slide-title">North America</h1>
+                  <p id="north-america-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at  eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+                <a href="#"><i class="fa fa-question attribution"></i></a>
+              </div>
+            </div>
+            <div class="item bg caribbean">
+              <div class="container-fluid">
+                <div class="carousel-caption">
+                  <h1 class="carousel-slide-title">Caribbean</h1>
+                  <p id="caribbean-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida  at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+                <a href="http://commons.wikimedia.org/wiki/File:Laika_ac_Caribbean_Sea_(7359596462).jpg"><i class="fa fa-question attribution"></i></a>
+              </div>
+            </div>
+            <div class="item bg new-zealand">
+              <div class="container-fluid">
+                <div class="carousel-caption">
+                  <h1 class="carousel-slide-title">New Zealand</h1>
+                  <p id="new-zealand-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+                <a href="http://commons.wikimedia.org/wiki/File:Clarence_River_mouth.jpg"><i class="fa fa-question attribution"></i></a>
+              </div>
+            </div>
+            <div class="item bg deep-sea">
+              <div class="container-fluid">
+                <div class="carousel-caption">
+                  <h1 class="carousel-slide-title">Deep Sea</h1>
+                  <p id="deep-sea-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                </div>
+                <a href="http://commons.wikimedia.org/wiki/File:South_pacific.JPG"><i class="fa fa-question attribution"></i></a>
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-angle-left fa-3x carousel-ctrl carousel-ctrl-left"></i></a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-angle-right fa-3x carousel-ctrl carousel-ctrl-right"></i></a>
+        </div>
+
+        <div class="row slide">
+          <div class="col-xs-12 slide-container">
+            <div class="slide-content slide-content-padded">
+              <h1>another section</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="row slide" id="api">
+          <div class="col-xs-12 slide-container">
+            <div class="slide-content slide-content-padded">
+              <div class="page-title-holder">
+                <h1 class="big">API</h1>
+              </div>
+              <p>Info about API</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row slide" id="contact">
+          <div class="col-xs-12 slide-container">
+            <div class="slide-content slide-content-padded">
+              <div class="page-title-holder">
+                <h1 class="big">Contact</h1>
+              </div>
+              <p>Contact info</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row slide" id="publications">
+          <div class="col-xs-12 slide-container">
+            <div class="slide-content slide-content-padded">
+              <div class="page-title-holder">
+                <h1 class="big">Publications</h1>
+              </div>
+              <p>Publication Info</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row footer">
+          <div class="container">
+            <div class="col-xs-12 funding">
+              <p>Current funding sources go here.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
-    </snap-content>
+      
+    </div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-   <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular.min.js"></script> -->
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/bootstrap-touch-carousel.js"></script>
     <script src="js/lib/snap.min.js"></script>
-    <script src="js/lib/angular.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-resource.min.js"></script>
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.19/angular-route.min.js"></script>-->
-    <script src="js/lib/angular-route.min.js"></script>
-    <script src="js/lib/angular-snap.min.js"></script>
-    <script src="js/lib/angular-touch.min.js"></script>
-    <script src="js/lib/angular-carousel.min.js"></script>
+    
 
     <script src="js/app.js"></script>
   </body>
