@@ -102,7 +102,8 @@
       padding: 12px 35px !important;
       border-bottom: 2px solid #0167bc;
       font-size: 13px;
-      font-weight: normal;
+      font-weight: 100;
+      letter-spacing: 1px;
     }
     .drawer-menu > a:hover {
       color: #fff;
@@ -143,13 +144,20 @@
       vertical-align: middle;
     }
 
+    .slide-content-padded {
+      padding-left: 10%;
+      padding-right: 10%;
+    }
+
     .title {
       margin-left: 1em;
       margin-top: -6em;
+
     }
     .big {
       font-size: 70px;
       color: #E0E1E6;
+      font-family: "Maven Pro", sans-serif;
     }
 
     .stats {
@@ -162,18 +170,28 @@
     #api {
      /* background-color: #D33A29;*/
     }
-    .page-title-holder {
+    .api-title {
       background-color: #fff;
       height:200px;
       width: 200px;
       border-radius: 50%;
       text-align: center;
       display: table;
-      border: 1px solid #6bbe98;
+      border: 11px solid #6bbe98;
     }
-    .page-title-holder > .big {
+    .page-title-holder {
+      
+    }
+    #contact-holder {
+      text-align: right;
+      color: #777;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 18px;
+    }
+    .api-title > .big {
       display: table-cell;
       vertical-align: middle;
+      color: #6bbe98;
     }
 
     .slideshow > .slide-container {
@@ -245,11 +263,7 @@
       font-size: 20px;
     }
 
-     .slide-content-padded {
-      padding-left: 2em;
-     }
-
-     .attribution {
+    .attribution {
       height: 25px;
       width: 25px;
       position: absolute;
@@ -263,7 +277,60 @@
       border-radius: 50%;
       color: #eee;
       z-index: 500;
+    }
+
+    .page-info {
+      color: #4bab7f;
+      font-size: 18px;
+      line-height: 28px;
+      font-weight: 200;
      }
+    .person {
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 200px;
+      border-bottom: 10px solid #fff;
+    }
+    .row > .person:first-child {
+      border-right: 5px solid #fff;
+    }
+    .row > .person:last-child {
+      border-left: 5px solid #fff;
+    }
+    .person-info {
+      float: right;
+      color: white;
+      font-size: 19px;
+      bottom: 0;
+      font-weight: 200;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      letter-spacing: 1px;
+    }
+    n {
+      font-size: 25px;
+      font-weight: 100;
+    }
+    e {
+      font-size: 14px;
+      font-weight: 100;
+    }
+    #shanan {
+      background-image: url("http://placekitten.com/1200/300");
+    }
+    #john {
+      background-image: url("http://placekitten.com/1000/300");
+    }
+    #jon {
+      background-image: url("http://placekitten.com/700/300");
+    }
+    #noel {
+      background-image: url("http://placekitten.com/800/300");
+    }
+    #michael {
+      background-image: url("http://placekitten.com/900/300");
+    }
     </style>
   </head>
   <body>
@@ -272,9 +339,9 @@
     <div class="snap-drawers">
       <div class="snap-drawer snap-drawer-right">
         <ul class="nav drawer">
-          <li class="drawer-menu"><a href="#api">API</a></li>
-          <li class="drawer-menu"><a href="#contact">Contact</a></li>
-          <li class="drawer-menu"><a href="#publications">Publications</a></li>
+          <li class="drawer-menu"><a href="#api"><i class="fa fa-code"></i> API</a></li>
+          <li class="drawer-menu"><a href="#contact"><i class="fa fa-at"></i> Contact</a></li>
+          <li class="drawer-menu"><a href="#publications"><i class="fa fa-file-o"></i> Publications</a></li>
         </ul>  
       </div>
     </div>
@@ -315,7 +382,6 @@
         </div>
 
         <div id="myCarousel" class="carousel" data-ride="carousel">
-          <!-- Indicators-->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -365,21 +431,21 @@
           <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-angle-right fa-3x carousel-ctrl carousel-ctrl-right"></i></a>
         </div>
 
-        <div class="row slide">
-          <div class="col-xs-12 slide-container">
-            <div class="slide-content slide-content-padded">
-              <h1>another section</h1>
-            </div>
-          </div>
-        </div>
-
         <div class="row slide" id="api">
           <div class="col-xs-12 slide-container">
             <div class="slide-content slide-content-padded">
-              <div class="page-title-holder">
-                <h1 class="big">API</h1>
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="page-title-holder api-title">
+                    <h1 class="big">API</h1>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="page-info">
+                    Disrupt you probably haven't heard of them polaroid kitsch. Ethical quinoa fashion axe, iPhone Carles wayfarers narwhal Godard mustache 90's Williamsburg McSweeney's. Wes Anderson next level authentic, bespoke mixtape beard Thundercats actually photo booth butcher deep v. Kickstarter Vice Pitchfork keytar, dreamcatcher food truck ennui aesthetic banh mi plaid fap 8-bit YOLO Godard cornhole.
+                  </div>
+                </div>
               </div>
-              <p>Info about API</p>
             </div>
           </div>
         </div>
@@ -387,21 +453,82 @@
         <div class="row slide" id="contact">
           <div class="col-xs-12 slide-container">
             <div class="slide-content slide-content-padded">
-              <div class="page-title-holder">
-                <h1 class="big">Contact</h1>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="page-title-holder" id="contact-holder">
+                    <h1 class="big">Contact</h1>
+                  </div>
+                </div>
               </div>
-              <p>Contact info</p>
+              <div class="row">
+                <div class="col-xs-12 person" id="shanan">
+                  <div class="person-info">
+                    <n>Shanan Peters</n> <br>
+                    <t>Principal Investigator</t> <br>
+                    <e>peters@geology.wisc.edu</e> <br>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 person" id="john">
+                  <div class="person-info">
+                    <n>John Czaplewski</n> <br>
+                    <t>Does things</t> <br>
+                    <e>jczaplewski@wisc.edu</e> <br>
+                  </div>
+                </div>
+                <div class="col-xs-6 person" id="jon">
+                  <div class="person-info">
+                    <n>Jon Hussan</n> <br>
+                    <t>Researcher</t> <br>
+                    <e>hussan@wisc.edu</e> <br>
+                  </div>
+                </div>
+              </div>                
+               <div class="row">
+                <div class="col-xs-6 person" id="noel">
+                  <div class="person-info">
+                    <n>Noel Heim</n> <br>
+                    <t>Researcher</t> <br>
+                    <e>nheim@geology.wisc.edu</e> <br>
+                  </div>
+                </div>
+                <div class="col-xs-6 person" id="michael">
+                  <div class="person-info">
+                    <n>Michael McClennen</n> <br>
+                    <t>Informaticist</t> <br>
+                    <e>mcclennen@wisc.edu</e> <br>
+                  </div>
+                </div>
+               </div>
+              </div>
             </div>
-          </div>
+
         </div>
 
         <div class="row slide" id="publications">
           <div class="col-xs-12 slide-container">
             <div class="slide-content slide-content-padded">
-              <div class="page-title-holder">
-                <h1 class="big">Publications</h1>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="page-title-holder">
+                    <h1 class="big">Publications</h1>
+                  </div>
+                </div>
               </div>
-              <p>Publication Info</p>
+
+              <div class="row">
+                <div class="col-xs-12">
+                  <ul>
+                    <li>Scenester PBR vegan synth typewriter. Sustainable scenester pour-over, 3 wolf moon American Apparel +1 leggings.</li>
+                    <li>Tonx artisan selvage mumblecore.</li>
+                    <li>Banh mi McSweeney's retro, distillery selfies Marfa Intelligentsia meggings trust fund.</li>
+                    <li>Before they sold out vegan Marfa Schlitz, Blue Bottle church-key Godard master cleanse.</li>
+                    <li>Shabby chic master cleanse gastropub lomo letterpress, pop-up American Apparel.</li>
+                    <li>+1 vinyl Tumblr McSweeney's gentrify, actually shabby chic Echo Park slow-carb Blue Bottle DIY Schlitz.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
