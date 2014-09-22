@@ -58,7 +58,6 @@
       font-size: 1.1em;
       font-weight: 400;
       letter-spacing: 1px;
-      /*text-transform: uppercase;*/
     }
     .navbar-default .navbar-toggle .icon-bar {
       background-color: #E0E1E6;
@@ -73,7 +72,6 @@
       background-color: rgba(0,0,0,0);
     }
     .main {
-      background-image: url("img/macro_large.jpg");
       margin: auto;
       color:#888;
     }
@@ -191,20 +189,6 @@
       color: #6bbe98;
     }
 
-    
-    .north-america {
-      background-image: url("img/field_shots/pentagon3.jpg");
-    }
-    .caribbean {
-      background-image: url("img/caribbean.jpg");
-    }
-    .new-zealand {
-      background-image: url("img/new_zealand.jpg");
-    }
-    .deep-sea {
-      background-image: url("img/deep_sea.jpg");
-    }
-
     .stat-caption {
       z-index: 10;
       color: #fff;
@@ -273,7 +257,11 @@
       position: absolute;
       right: 0;
       text-align: right;
+      background-color: rgba(0,0,0,0.2);
       letter-spacing: 1px;
+      padding-top: 10px;
+      padding-left: 10px;
+      border-radius: 3px;
     }
     n {
       font-size: 25px;
@@ -286,9 +274,6 @@
     #shanan {
       background-image: url("http://placekitten.com/1200/300");
     }
-    #john {
-      background-image: url("http://placekitten.com/1000/300");
-    }
     #jon {
       background-image: url("http://placekitten.com/700/300");
     }
@@ -297,6 +282,105 @@
     }
     #michael {
       background-image: url("http://placekitten.com/900/300");
+    }
+
+    @media(min-width: 1200px) {
+      .main {
+        background-image: url("img/macro_large.jpg");
+      }
+      .north-america {
+        background-image: url("img/north_america.jpg");
+      }
+      .caribbean {
+        background-image: url("img/caribbean.jpg");
+      }
+      .new-zealand {
+        background-image: url("img/new_zealand.jpg");
+      }
+      .deep-sea {
+        background-image: url("img/deep_sea.jpg");
+      }
+      #john {
+        background-image: url("img/john.jpg");
+      }
+    }
+    @media(max-width: 992px) {
+      .main {
+        background-image: url("img/macro_med.jpg");
+      }
+      .north-america {
+        background-image: url("img/north_america_med.jpg");
+      }
+      .caribbean {
+        background-image: url("img/caribbean_med.jpg");
+      }
+      .new-zealand {
+        background-image: url("img/new_zealand_med.jpg");
+      }
+      .deep-sea {
+        background-image: url("img/deep_sea_med.jpg");
+      }
+      #john {
+        background-image: url("img/john_med.jpg");
+      }
+    }
+    @media(max-width: 768px) {
+      .main {
+        background-image: url("img/macro_small.jpg");
+      }
+      .north-america {
+        background-image: url("img/north_america_small.jpg");
+      }
+      .caribbean {
+        background-image: url("img/caribbean_small.jpg");
+      }
+      .new-zealand {
+        background-image: url("img/new_zealand_small.jpg");
+      }
+      .deep-sea {
+        background-image: url("img/deep_sea_small.jpg");
+      }
+      .stat-row {
+        height: 200%;
+      }
+      .stat {
+        height: 50%;
+      }
+      .big {
+        font-size: 37px;
+      }
+      .title {
+        margin-top: 0;
+      }
+      #api {
+        height: 150%;
+      }
+      .api-title {
+        margin-left: 7%;
+        margin-bottom: 50px;
+        margin-top: 50px;
+      }
+      .stat-caption > h1 {
+        font-size: 42px;
+      }
+      .stat-caption > p {
+        font-size: 16px;
+      }
+      .person-info {
+        line-height: 17px;
+      }
+      n {
+        font-size: 14px;
+      }
+      t {
+        font-size: 15px;
+      }
+      e {
+        font-size: 10px;
+      }
+      #john {
+        background-image: url("img/john_low.jpg");
+      }
     }
     </style>
   </head>
@@ -313,7 +397,6 @@
       </div>
     </div>
 
-    <!-- Large screen navbar -->
     <div class="navbar navbar-default navbar-fixed-top close-to-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
@@ -335,7 +418,7 @@
     </div>
 
     <div id="snapContent" class="snap-content scrollable">
-   
+  
       <div class="container-fluid">
         <div class="row slide main">
           <div class="col-xs-12 slide-container">
@@ -348,11 +431,11 @@
           </div>
         </div>
 
-        <div class="row slide">
+        <div class="row slide stat-row">
           <div class="col-sm-12 slide-container">
             <div class="stat-container">
               <div class="row stat-container">
-                <div class="col-sm-6 north-america stat-container stat">
+                <div class="col-sm-6 north-america stat stat-container">
                    <div class="container-fluid">
                     <div class="stat-caption">
                       <h1>North America</h1>
@@ -362,7 +445,7 @@
                   </div>
                 </div>
 
-                <div class="col-sm-6 caribbean stat-container stat">
+                <div class="col-sm-6 caribbean stat stat-container">
                   <div class="container-fluid">
                     <div class="stat-caption">
                       <h1>Caribbean</h1>
@@ -376,11 +459,11 @@
           </div>
         </div>
 
-        <div class="row slide">
+        <div class="row slide stat-row">
           <div class="col-xs-12 slide-container">
             <div class="stat-container">
               <div class="row stat-container">
-                <div class="col-sm-6 new-zealand stat-container stat">
+                <div class="col-sm-6 new-zealand stat stat-container">
                   <div class="container-fluid">
                     <div class="stat-caption">
                       <h1>New Zealand</h1>
@@ -389,7 +472,7 @@
                     <a href="http://commons.wikimedia.org/wiki/File:Clarence_River_mouth.jpg"><i class="fa fa-question attribution"></i></a>
                   </div>
                 </div>
-                <div class="col-sm-6 deep-sea stat-container stat">
+                <div class="col-sm-6 deep-sea stat stat-container">
                   <div class="container-fluid">
                     <div class="stat-caption">
                       <h1>Deep Sea</h1>
@@ -414,7 +497,7 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="page-info">
-                    All data contained in the Macrostrat database is freely available via our Application Programming Interface (API). It provides a quick and convinient way to retrieve data for analysis or mobile application creation. 
+                    All data contained in the Macrostrat database is freely available via our Application Programming Interface (API). It provides a quick and convinient way to retrieve data for analysis or mobile application creation. For more information head over to the API root to explore what options are available.
                   </div>
                 </div>
               </div>
@@ -517,6 +600,7 @@
 
     <script src="js/lib/zepto.min.js"></script>
     <script src="js/lib/snap.min.js"></script>
+    <script src="js/lib/fastclick.min.js"></script>
 
     <script src="js/app.js"></script>
   </body>
