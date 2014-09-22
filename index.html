@@ -7,7 +7,6 @@
     <link href="http://fonts.googleapis.com/css?family=Maven+Pro&text=macrostrat.org" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/snap.css" rel="stylesheet" type="text/css">
-    <link href="css/bootstrap-touch-carousel.css" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
     .container-fluid {
@@ -160,9 +159,6 @@
       font-family: "Maven Pro", sans-serif;
     }
 
-    .stats {
-      background-image: url("img/field_shots/pentagon3.jpg");
-    }
     .stats > .slide-container {
       text-align: center;
     }
@@ -179,9 +175,7 @@
       display: table;
       border: 11px solid #6bbe98;
     }
-    .page-title-holder {
-      
-    }
+
     #contact {
       height: 700px;
     }
@@ -197,55 +191,7 @@
       color: #6bbe98;
     }
 
-    .slideshow > .slide-container {
-      display: block;
-    }
-    .slideshow > .slide-container > .slide-content {
-      display: block;
-    }
-
-
-    .carousel, .item, .active {
-      height: 100%;
-    }
-    .carousel-inner {
-      height: 100%;
-    }
-    .carousel-caption {
-      z-index: 10;
-    }
-    .carousel .item {
-      background-color: #777;
-    }
-
-    .carousel .carousel-inner .bg {
-      background-repeat:no-repeat;
-      background-size:cover;
-    }
-
-    .carousel-inner > .item > img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      height: 100%;
-    }
-
-    .carousel-ctrl {
-      position: absolute;
-      top: 41%;
-      z-index: 5;
-      display: inline-block;
-    }
-
-    .carousel-ctrl-right {
-      right: 17%;
-    }
-
-    .carousel-ctrl-left {
-      left: 17%;
-    }
-
+    
     .north-america {
       background-image: url("img/field_shots/pentagon3.jpg");
     }
@@ -259,13 +205,23 @@
       background-image: url("img/deep_sea.jpg");
     }
 
-    .carousel-slide-title {
+    .stat-title {
       font-size: 55px;
     }
     .carousel-slide-stats {
       font-size: 20px;
     }
 
+    .stat-caption {
+      z-index: 10;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+      position: absolute;
+      left: 20%;
+      right: 20%;
+      bottom: 20px;
+    }
     .attribution {
       height: 25px;
       width: 25px;
@@ -280,6 +236,14 @@
       border-radius: 50%;
       color: #eee;
       z-index: 500;
+    }
+
+    .stat {
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .stat-container {
+      height: 100%;
     }
 
     .page-info {
@@ -384,54 +348,59 @@
           </div>
         </div>
 
-        <div id="myCarousel" class="carousel" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-          </ol>
-           
-          <div class="carousel-inner">
-            <div class="item bg north-america active">
-              <div class="container-fluid">
-                <div class="carousel-caption">
-                  <h1 class="carousel-slide-title">North America</h1>
-                  <p id="north-america-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at  eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+        <div class="row slide">
+          <div class="col-sm-12 slide-container">
+            <div class="stat-container">
+              <div class="row stat-container">
+                <div class="col-sm-6 north-america stat-container stat">
+                   <div class="container-fluid">
+                    <div class="stat-caption">
+                      <h1 class="stat-title">North America</h1>
+                      <p id="north-america-stats" class="carousel-slide-stats"></p>
+                    </div>
+                    <a href="#"><i class="fa fa-question attribution"></i></a>
+                  </div>
                 </div>
-                <a href="#"><i class="fa fa-question attribution"></i></a>
-              </div>
-            </div>
-            <div class="item bg caribbean">
-              <div class="container-fluid">
-                <div class="carousel-caption">
-                  <h1 class="carousel-slide-title">Caribbean</h1>
-                  <p id="caribbean-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida  at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+                <div class="col-sm-6 caribbean stat-container stat">
+                  <div class="container-fluid">
+                    <div class="stat-caption">
+                      <h1 class="stat-title">Caribbean</h1>
+                      <p id="caribbean-stats" class="carousel-slide-stats"></p>
+                    </div>
+                    <a href="http://commons.wikimedia.org/wiki/File:Laika_ac_Caribbean_Sea_(7359596462).jpg"><i class="fa fa-question attribution"></i></a>
+                  </div>
                 </div>
-                <a href="http://commons.wikimedia.org/wiki/File:Laika_ac_Caribbean_Sea_(7359596462).jpg"><i class="fa fa-question attribution"></i></a>
-              </div>
-            </div>
-            <div class="item bg new-zealand">
-              <div class="container-fluid">
-                <div class="carousel-caption">
-                  <h1 class="carousel-slide-title">New Zealand</h1>
-                  <p id="new-zealand-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
-                <a href="http://commons.wikimedia.org/wiki/File:Clarence_River_mouth.jpg"><i class="fa fa-question attribution"></i></a>
-              </div>
-            </div>
-            <div class="item bg deep-sea">
-              <div class="container-fluid">
-                <div class="carousel-caption">
-                  <h1 class="carousel-slide-title">Deep Sea</h1>
-                  <p id="deep-sea-stats" class="carousel-slide-stats">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                </div>
-                <a href="http://commons.wikimedia.org/wiki/File:South_pacific.JPG"><i class="fa fa-question attribution"></i></a>
               </div>
             </div>
           </div>
-          <a class="left carousel-control" href="#myCarousel" data-slide="prev"><i class="fa fa-angle-left fa-3x carousel-ctrl carousel-ctrl-left"></i></a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next"><i class="fa fa-angle-right fa-3x carousel-ctrl carousel-ctrl-right"></i></a>
+        </div>
+
+        <div class="row slide">
+          <div class="col-xs-12 slide-container">
+            <div class="stat-container">
+              <div class="row stat-container">
+                <div class="col-sm-6 new-zealand stat-container stat">
+                  <div class="container-fluid">
+                    <div class="stat-caption">
+                      <h1 class="stat-title">New Zealand</h1>
+                      <p id="new-zealand-stats" class="carousel-slide-stats"></p>
+                    </div>
+                    <a href="http://commons.wikimedia.org/wiki/File:Clarence_River_mouth.jpg"><i class="fa fa-question attribution"></i></a>
+                  </div>
+                </div>
+                <div class="col-sm-6 deep-sea stat-container stat">
+                  <div class="container-fluid">
+                    <div class="stat-caption">
+                      <h1 class="stat-title">Deep Sea</h1>
+                      <p id="deep-sea-stats" class="carousel-slide-stats"></p>
+                    </div>
+                    <a href="http://commons.wikimedia.org/wiki/File:South_pacific.JPG"><i class="fa fa-question attribution"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="row slide" id="api">
@@ -550,9 +519,7 @@
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <script src="js/lib/bootstrap-touch-carousel.js"></script>
     <script src="js/lib/snap.min.js"></script>
-    
 
     <script src="js/app.js"></script>
   </body>
