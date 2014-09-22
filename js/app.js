@@ -4,9 +4,7 @@
   };
   $(document).ready(function() {
     if (is_touch_device()) {
-      $(".carousel-control").hide();
-      // hacky mchackerson
-      $("[data-slide-to=0]").click();
+
     }
   });
     

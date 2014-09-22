@@ -205,13 +205,6 @@
       background-image: url("img/deep_sea.jpg");
     }
 
-    .stat-title {
-      font-size: 55px;
-    }
-    .carousel-slide-stats {
-      font-size: 20px;
-    }
-
     .stat-caption {
       z-index: 10;
       color: #fff;
@@ -222,6 +215,13 @@
       right: 20%;
       bottom: 20px;
     }
+    .stat-caption > p {
+      font-size: 20px;
+    }
+    .stat-caption > h1 {
+      font-size: 55px;
+    }
+
     .attribution {
       height: 25px;
       width: 25px;
@@ -355,8 +355,8 @@
                 <div class="col-sm-6 north-america stat-container stat">
                    <div class="container-fluid">
                     <div class="stat-caption">
-                      <h1 class="stat-title">North America</h1>
-                      <p id="north-america-stats" class="carousel-slide-stats"></p>
+                      <h1>North America</h1>
+                      <p id="north-america-stats"></p>
                     </div>
                     <a href="#"><i class="fa fa-question attribution"></i></a>
                   </div>
@@ -365,8 +365,8 @@
                 <div class="col-sm-6 caribbean stat-container stat">
                   <div class="container-fluid">
                     <div class="stat-caption">
-                      <h1 class="stat-title">Caribbean</h1>
-                      <p id="caribbean-stats" class="carousel-slide-stats"></p>
+                      <h1>Caribbean</h1>
+                      <p id="caribbean-stats"></p>
                     </div>
                     <a href="http://commons.wikimedia.org/wiki/File:Laika_ac_Caribbean_Sea_(7359596462).jpg"><i class="fa fa-question attribution"></i></a>
                   </div>
@@ -383,8 +383,8 @@
                 <div class="col-sm-6 new-zealand stat-container stat">
                   <div class="container-fluid">
                     <div class="stat-caption">
-                      <h1 class="stat-title">New Zealand</h1>
-                      <p id="new-zealand-stats" class="carousel-slide-stats"></p>
+                      <h1>New Zealand</h1>
+                      <p id="new-zealand-stats"></p>
                     </div>
                     <a href="http://commons.wikimedia.org/wiki/File:Clarence_River_mouth.jpg"><i class="fa fa-question attribution"></i></a>
                   </div>
@@ -392,8 +392,8 @@
                 <div class="col-sm-6 deep-sea stat-container stat">
                   <div class="container-fluid">
                     <div class="stat-caption">
-                      <h1 class="stat-title">Deep Sea</h1>
-                      <p id="deep-sea-stats" class="carousel-slide-stats"></p>
+                      <h1>Deep Sea</h1>
+                      <p id="deep-sea-stats"></p>
                     </div>
                     <a href="http://commons.wikimedia.org/wiki/File:South_pacific.JPG"><i class="fa fa-question attribution"></i></a>
                   </div>
@@ -414,7 +414,7 @@
                 </div>
                 <div class="col-sm-6">
                   <div class="page-info">
-                    Disrupt you probably haven't heard of them polaroid kitsch. Ethical quinoa fashion axe, iPhone Carles wayfarers narwhal Godard mustache 90's Williamsburg McSweeney's. Wes Anderson next level authentic, bespoke mixtape beard Thundercats actually photo booth butcher deep v. Kickstarter Vice Pitchfork keytar, dreamcatcher food truck ennui aesthetic banh mi plaid fap 8-bit YOLO Godard cornhole.
+                    All data contained in the Macrostrat database is freely available via our Application Programming Interface (API). It provides a quick and convinient way to retrieve data for analysis or mobile application creation. 
                   </div>
                 </div>
               </div>
@@ -445,7 +445,7 @@
                 <div class="col-xs-6 person" id="john">
                   <div class="person-info">
                     <n>John Czaplewski</n> <br>
-                    <t>Does things</t> <br>
+                    <t>Lead Developer</t> <br>
                     <e>jczaplewski@wisc.edu</e> <br>
                   </div>
                 </div>
@@ -512,13 +512,10 @@
             </div>
           </div>
         </div>
-
       </div>
-      
     </div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/zepto.min.js"></script>
     <script src="js/lib/snap.min.js"></script>
 
     <script src="js/app.js"></script>
