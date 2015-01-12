@@ -76,7 +76,6 @@
       top: 50px;
     }
     .close-to-top {
-      margin-top: 0;
       background-color: #015EAB;
       opacity: 0.92;
     }
@@ -103,6 +102,7 @@
     }
     .logo {
       height: 50px;
+      padding: 2px;
     }
     .main {
       margin: auto;
@@ -162,6 +162,9 @@
       height: 100%;
       background-color: #fff;
     }
+    .stat-row {
+      height: 50%;
+    }
     .slide-container {
       width: 100%;
       height: 100%;
@@ -185,7 +188,7 @@
 
     }
     .big {
-      font-size: 70px;
+      font-size: 75px;
       color: #E0E1E6;
       font-family: "Maven Pro", sans-serif;
     }
@@ -321,7 +324,7 @@
       background-image: url("http://placekitten.com/900/300");
     }
     #sharon {
-      background-image: url("http://placekitten.com/900/400");
+      background-image: url("img/sharon.jpg");
     }
 
     #publications {
@@ -329,7 +332,7 @@
       padding-top: 15%;
     }
     .pub-list {
-      counter-reset: pub-counter 29;
+      counter-reset: pub-counter 28;
       list-style: none;
     }
     .pub-list li {
@@ -351,7 +354,7 @@
         display: none;
       }
       .main {
-        background-image: url("img/macro_large.jpg");
+        background-image: url("img/gmna_large.jpg");
       }
       .north-america {
         background-image: url("img/north_america.jpg");
@@ -381,7 +384,7 @@
         display: none;
       }
       .main {
-        background-image: url("img/macro_med.jpg");
+        background-image: url("img/gmna_med.jpg");
       }
       .north-america {
         background-image: url("img/north_america_med.jpg");
@@ -407,11 +410,14 @@
       }
     }
     @media(max-width: 768px) {
+      .logo {
+        margin-left: 10px;
+      }
       .snap-drawers {
         display: block;
       }
       .main {
-        background-image: url("img/macro_small.jpg");
+        background-image: url("img/gmna_small.jpg");
       }
       .north-america {
         background-image: url("img/north_america_small.jpg");
@@ -426,7 +432,7 @@
         background-image: url("img/deep_sea_small.jpg");
       }
       .stat-row {
-        height: 200%;
+        height: 100%;
       }
       .stat {
         height: 50%;
@@ -506,9 +512,10 @@
     <div class="snap-drawers">
       <div class="snap-drawer snap-drawer-right">
         <ul class="nav drawer">
-          <li class="drawer-menu"><a href="#api"><i class="fa fa-code"></i> API</a></li>
-          <li class="drawer-menu"><a href="#contact"><i class="fa fa-at"></i> Contact</a></li>
-          <li class="drawer-menu"><a href="#publications"><i class="fa fa-file-o"></i> Publications</a></li>
+          <li class="drawer-menu"><a href="#apps"><i class="fa fa-plane"></i>  Apps</a></li>
+          <li class="drawer-menu"><a href="#api"><i class="fa fa-code"></i>  API</a></li>
+          <li class="drawer-menu"><a href="#contact"><i class="fa fa-at"></i>  Contact</a></li>
+          <li class="drawer-menu"><a href="#publications"><i class="fa fa-file-o"></i>  Publications</a></li>
         </ul>  
       </div>
     </div>
@@ -516,7 +523,7 @@
     <div class="navbar navbar-default navbar-fixed-top close-to-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
-          <a href="/"><img src="img/logo_white.png" class="logo"></a>
+          <a href="/"><img src="img/logo_white2.png" class="logo"></a>
           <button type="button" class="navbar-toggle collapsed toggler" id="openRight">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -526,6 +533,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#apps">Apps</a></li>
             <li><a href="#api">API</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#publications">Publications</a></li>
@@ -747,11 +755,12 @@
         <div class="row footer">
           <div class="container">
             <div class="col-sm-4" id="who-made-it">
-              <a href="/"><img src="img/logo_white.png" style="height:75px;"></a>
+              <a href="/"><img src="img/logo_white2.png" style="height:75px;"></a>
               <br>Produced by the <a href="http://strata.geology.wisc.edu">UW Macrostrat Lab</a> <a href="https://github.com/UW-Macrostrat"><i class="fa fa-github"></i></a>
             </div>
             <div class="col-sm-4" id="bottom-nav">
               <ul class="nav footer-nav">
+                <li><a href="#apps">Apps</a></li>
                 <li><a href="#api">API</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#publications">Publications</a></li>
