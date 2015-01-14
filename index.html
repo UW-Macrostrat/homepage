@@ -9,6 +9,9 @@
     <link href="css/snap.css" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
+    a:hover {
+      text-decoration: none;
+    }
     .container-fluid {
       margin: 0;
       padding: 0;
@@ -185,7 +188,10 @@
     .title {
       margin-left: 1em;
       margin-top: -6em;
+    }
 
+    .title > p {
+      color: #babdc8;
     }
     .big {
       font-size: 75px;
@@ -197,6 +203,34 @@
       text-align: center;
     }
 
+  
+    #app-title {
+      background-color: #4BABBf;
+      color: white;
+    }
+
+    .app-grid {
+      border: 1px solid #E5E5E5;
+      margin-top: -1px;
+      margin-bottom: 0;
+      margin-left: -1px;
+      min-height: 200px;
+      text-align: center;
+      display: table;
+    }
+
+    .app-grid-content {
+      display: table-cell;
+      vertical-align: middle;
+      color: #4BABBf;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .app-img {
+      height: 150px;
+      border-radius: 4px;
+    }
     #api {
      /* background-color: #D33A29;*/
     }
@@ -208,6 +242,11 @@
       text-align: center;
       display: table;
       border: 11px solid #6bbe98;
+      color: #4BABBf;
+    }
+
+    .big.apps {
+      color: #F5F5F5;
     }
 
     #contact {
@@ -236,10 +275,10 @@
       bottom: 20px;
     }
     .stat-caption > p {
-      font-size: 20px;
+      font-size: 18px;
     }
     .stat-caption > h1 {
-      font-size: 55px;
+      font-size: 45px;
     }
 
     .attribution {
@@ -320,9 +359,6 @@
     #jon {
       background-image: url("img/jon.jpg");
     }
-    #andrew {
-      background-image: url("http://placekitten.com/900/300");
-    }
     #sharon {
       background-image: url("img/sharon.jpg");
     }
@@ -378,6 +414,10 @@
         background-image: url("img/noel.jpg");
         background-position: 0 -35px, center;
       }
+      #andrew {
+        background-image: url("img/andrew.jpg");
+        background-position: 0 -35px, center;
+      }
     }
     @media(max-width: 992px) {
       .snap-drawers {
@@ -406,6 +446,10 @@
       }
       #noel {
         background-image: url("img/noel_med.jpg");
+        background-position: 0 0;
+      }
+      #andrew {
+        background-image: url("img/andrew_med.jpg");
         background-position: 0 0;
       }
     }
@@ -438,10 +482,13 @@
         height: 50%;
       }
       .big {
-        font-size: 37px;
+        font-size: 50px;
       }
       .title {
         margin-top: 0;
+      }
+      .app-grid {
+        width: 100%;
       }
       #api {
         height: 150%;
@@ -475,6 +522,9 @@
       #noel {
         background-image: url("img/noel_low.jpg");
       }
+      #andrew {
+        background-image: url("img/andrew_low.jpg");
+      }
       .funding {
         display: block;
       }
@@ -487,6 +537,9 @@
         height: 40px;
         padding-left: 10px;
         padding-top: 7px;
+      }
+      .big {
+        font-size: 37px;
       }
       .col-xs-6 {
         width: 100%;
@@ -610,6 +663,43 @@
           </div>
         </div>
 
+        <div class="row slide" id="apps">
+          <div class="col-xs-12 slide-container">
+            <div class="slide-content slide-content-padded">
+              <div class="row">
+                <div class="col-sm-4 app-grid">
+                  <a href="/classic" class="app-grid-content">
+                    <div>
+                      <img class="app-img" id="macrostrat-classic" src="img/macrostrat_classic.png">
+                      <p>Macrostrat Classic</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-sm-4 app-grid"></div>
+                <div class="col-sm-4 app-grid" id="app-title">
+                  <div class="page-title-holder app-grid-content">
+                    <h1 class="big apps">Apps</h1>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4 app-grid"></div>
+                <div class="col-sm-4 app-grid">
+                  <a class="app-grid-content" href="https://itunes.apple.com/us/app/mancos/id541570878?mt=8">
+                    <div>
+                      <img class="app-img" id="mancos" src="img/mancos.jpg">
+                      <p>Mancos</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-sm-4 app-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
         <div class="row slide" id="api">
           <div class="col-xs-12 slide-container">
             <div class="slide-content slide-content-padded">
@@ -648,6 +738,7 @@
                   </div>
                 </div>
               </div>
+
               <div class="row">
                 <div class="col-xs-6 person" id="john">
                   <div class="person-info">
@@ -663,36 +754,38 @@
                     <e>husson@wisc.edu</e> <br>
                   </div>
                 </div>
-              </div>                
+              </div>
+
               <div class="row">
-                <div class="col-xs-6 person" id="puneet">
-                  <div class="person-info">
-                    <n>Puneet Kishor</n> <br>
-                    <t>Generally Ignored</t> <br>
-                    <e>punkish@eidesis.org</e> <br>
-                  </div>
-                </div>
                 <div class="col-xs-6 person" id="andrew">
                   <div class="person-info">
                     <n>Andrew Zaffos</n> <br>
                     <t>Researcher</t> <br>
-                    <e>zaffos@wisc.edu</e> <br>
+                    <e>azaffos@wisc.edu</e> <br>
                   </div>
                 </div>
-              </div>
-              <div class="row">
                 <div class="col-xs-6 person" id="sharon">
                   <div class="person-info">
                     <n>Sharon McMullen</n> <br>
                     <t>Researcher</t> <br>
-                    <e>mcclennen@wisc.edu</e> <br>
+                    <e>skmcmullen@wisc.edu</e> <br>
                   </div>
                 </div>
+              </div>
+            
+              <div class="row">
                 <div class="col-xs-6 person" id="noel">
                   <div class="person-info">
                     <n>Noel Heim</n> <br>
                     <t>Researcher (former)</t> <br>
                     <e>nheim@geology.wisc.edu</e> <br>
+                  </div>
+                </div>
+                <div class="col-xs-6 person" id="puneet">
+                  <div class="person-info">
+                    <n>Puneet Kishor</n> <br>
+                    <t>Generally Ignored</t> <br>
+                    <e>punkish@eidesis.org</e> <br>
                   </div>
                 </div>
               </div>
