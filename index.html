@@ -117,6 +117,10 @@
       font-weight: 100;
       line-height: 1.1;
     }
+    .explore-sift {
+      background-color: #990000;
+      border-color: #990000;
+    }
     .stats {
       color: white;
     }
@@ -248,7 +252,9 @@
     .big.apps {
       color: #F5F5F5;
     }
-
+    #apps {
+      padding-top: 150px;
+    }
     #contact {
       height: 1000px;
     }
@@ -604,6 +610,7 @@
               <div class="title">
                 <h1 class="big">macrostrat.org</h1>
                 <p>Collaborative macrostratigraphic, lithological, and environmental data</p>
+                <a type="button" class="btn btn-danger btn-lg explore-sift" href="/sift">Explore the data</a>
               </div>
             </div>
           </div>
@@ -628,7 +635,7 @@
                       <h1>Caribbean</h1>
                       <p id="caribbean-stats"></p>
                     </div>
-                    <a href="http://commons.wikimedia.org/wiki/File:Laika_ac_Caribbean_Sea_(7359596462).jpg"><i class="fa fa-question attribution"></i></a>
+                    <a href="http://commons.wikimedia.org/wiki/File:Laika_ac_Caribbean_Sea_(7359596462).jpg" target="_blank"><i class="fa fa-question attribution"></i></a>
                   </div>
                 </div>
               </div>
@@ -646,7 +653,7 @@
                       <h1>New Zealand</h1>
                       <p id="new-zealand-stats"></p>
                     </div>
-                    <a href="http://commons.wikimedia.org/wiki/File:Clarence_River_mouth.jpg"><i class="fa fa-question attribution"></i></a>
+                    <a href="http://commons.wikimedia.org/wiki/File:Clarence_River_mouth.jpg" target="_blank"><i class="fa fa-question attribution"></i></a>
                   </div>
                 </div>
                 <div class="col-sm-6 deep-sea stat stat-container">
@@ -655,7 +662,7 @@
                       <h1>Deep Sea</h1>
                       <p id="deep-sea-stats"></p>
                     </div>
-                    <a href="http://commons.wikimedia.org/wiki/File:South_pacific.JPG"><i class="fa fa-question attribution"></i></a>
+                    <a href="http://commons.wikimedia.org/wiki/File:South_pacific.JPG" target="_blank"><i class="fa fa-question attribution"></i></a>
                   </div>
                 </div>
               </div>
@@ -665,8 +672,16 @@
 
         <div class="row slide" id="apps">
           <div class="col-xs-12 slide-container">
-            <div class="slide-content slide-content-padded">
+            <div class="slide-content slide-content-padded visible-sm visible-md visible-lg">
               <div class="row">
+                <div class="col-sm-4 app-grid">
+                  <a href="/sift" class="app-grid-content">
+                    <div>
+                      <img class="app-img" id="sift" src="img/logo_red.png">
+                      <p>Sift</p>
+                    </div>
+                  </a>
+                </div>
                 <div class="col-sm-4 app-grid">
                   <a href="/classic" class="app-grid-content">
                     <div>
@@ -675,7 +690,6 @@
                     </div>
                   </a>
                 </div>
-                <div class="col-sm-4 app-grid"></div>
                 <div class="col-sm-4 app-grid" id="app-title">
                   <div class="page-title-holder app-grid-content">
                     <h1 class="big apps">Apps</h1>
@@ -683,9 +697,61 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-4 app-grid"></div>
                 <div class="col-sm-4 app-grid">
-                  <a class="app-grid-content" href="https://itunes.apple.com/us/app/mancos/id541570878?mt=8">
+                  <a href="/gmna" class="app-grid-content">
+                    <div>
+                      <img class="app-img" id="gmna" src="img/gmna.jpg">
+                      <p>GMNA</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-sm-4 app-grid">
+                  <a class="app-grid-content" href="https://itunes.apple.com/us/app/mancos/id541570878?mt=8" target="_blank">
+                    <div>
+                      <img class="app-img" id="mancos" src="img/mancos.jpg">
+                      <p>Mancos</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-sm-4 app-grid"></div>
+              </div>
+            </div>
+
+            <div class="slide-content slide-content-padded visible-xs">
+              <div class="row">
+                <div class="col-sm-4 app-grid" id="app-title">
+                  <div class="page-title-holder app-grid-content">
+                    <h1 class="big apps">Apps</h1>
+                  </div>
+                </div>
+                <div class="col-sm-4 app-grid">
+                  <a href="/sift" class="app-grid-content">
+                    <div>
+                      <img class="app-img" id="sift" src="img/logo_red.png">
+                      <p>Sift</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-sm-4 app-grid">
+                  <a href="/classic" class="app-grid-content">
+                    <div>
+                      <img class="app-img" id="macrostrat-classic" src="img/macrostrat_classic.png">
+                      <p>Macrostrat Classic</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4 app-grid">
+                  <a href="/gmna" class="app-grid-content">
+                    <div>
+                      <img class="app-img" id="gmna" src="img/gmna.jpg">
+                      <p>GMNA</p>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-sm-4 app-grid">
+                  <a class="app-grid-content" href="https://itunes.apple.com/us/app/mancos/id541570878?mt=8" target="_blank">
                     <div>
                       <img class="app-img" id="mancos" src="img/mancos.jpg">
                       <p>Mancos</p>
@@ -807,7 +873,7 @@
               <div class="row">
                 <div class="col-xs-12">
                   <ol class="pub-list" reversed>
-                    <li>Fraass, A.J., D.C. Kelly, S.E. Peters. 2015. Macroevolutionary history of the planktic foraminifera. <em>Annual Review of Earth and Planetary Sciences</em> 43:5.1-5.28. <a href="http://dx.doi.org/10.1146/annurev-earth-060614-105059">[link]</a></li>
+                    <li>Fraass, A.J., D.C. Kelly, S.E. Peters. 2015. Macroevolutionary history of the planktic foraminifera. <em>Annual Review of Earth and Planetary Sciences</em> 43:5.1-5.28. <a href="http://dx.doi.org/10.1146/annurev-earth-060614-105059" target="_blank">[link]</a></li>
                     <li>Peters, S.E., D.C. Kelly, and A. Fraass. 2013. Oceanographic controls on the diversity and extinction of planktonic foraminifera. <em>Nature</em>. 493:398-401.<a href='http://www.nature.com/nature/journal/v493/n7432/full/nature11815.html' target="_blank">[link]</a>.</li>
                     <li>Benson, R.B.J., P.D. Mannion, R.J. Butler, P. Upchurch, A. Goswami, and S.E. Evans. 2012. Cretaceous tetrapod fossil record sampling and faunal turnover: implications for biogeography and the rise of modern clades. <em>Palaeogeogrpahy, Palaeoclimatology, Palaeoecology</em>. <a href='http://www.sciencedirect.com/science/article/pii/S0031018212006116' target="_blank">[link]</a>.</li>
                     <li>Rook, D.L., N.A. Heim, and J. Marcot. 2012.Contrasting patterns and connections of rock and biotic diversity in the marine and non-marine fossil records of North America. <em>Palaeogeogrpahy, Palaeoclimatology, Palaeoecology</em>. <a href='http://www.sciencedirect.com/science/article/pii/S0031018212005718' target="_blank">[link]</a>.</li>
@@ -850,7 +916,7 @@
           <div class="container">
             <div class="col-sm-4" id="who-made-it">
               <a href="/"><img src="img/logo_white2.png" style="height:75px;"></a>
-              <br>Produced by the <a href="http://strata.geology.wisc.edu">UW Macrostrat Lab</a> <a href="https://github.com/UW-Macrostrat"><i class="fa fa-github"></i></a>
+              <br>Produced by the <a href="http://strata.geology.wisc.edu" target="_blank">UW Macrostrat Lab</a> <a href="https://github.com/UW-Macrostrat" target="_blank"><i class="fa fa-github"></i></a>
             </div>
             <div class="col-sm-4" id="bottom-nav">
               <ul class="nav footer-nav">
