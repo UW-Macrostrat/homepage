@@ -41,7 +41,7 @@ var checkWindowSize = (function checkWindowSizeF() {
 
 $(window).on("resize", checkWindowSize);
 
-$.getJSON("http://dev.macrostrat.org/api/stats?all", function(data) {
+$.getJSON("//dev.macrostrat.org/api/stats?all", function(data) {
   for (var i = 0; i < data.success.data.length; i++) {
     var place = data.success.data[i].project.toLowerCase().replace(" ", "-");
     $("#" + place + "-stats").html(data.success.data[i].packages + " packages. " + data.success.data[i].units + " units. " + data.success.data[i].pbdb_collections + " collections.");
