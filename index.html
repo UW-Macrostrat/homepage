@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="macrostrat">
+<html>
   <head>
     <meta name=viewport content="width=device-width, initial-scale=1">
     <meta charset="utf-8" lang="en">
-    <title>macrostrat.org</title>
+    <title>Macrostrat</title>
     <link href="https://fonts.googleapis.com/css?family=Maven+Pro&text=macrostrat.org" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="css/snap.css" rel="stylesheet" type="text/css">
@@ -54,6 +54,7 @@
     }
     .footer-nav > li > a {
       color: #E0E1E6;
+      padding: 5px;
     }
     .funding {
       color: #E0E1E6;
@@ -212,10 +213,69 @@
       text-align: center;
     }
 
-  
+
     #app-title {
       background-color: #4BABBf;
       color: white;
+    }
+
+    .about-title {
+      border-bottom: 1px solid #eee;
+      margin-bottom: 18px;
+
+    }
+    .about {
+      padding: 0 15px;
+    }
+    .about-row {
+      padding: 15px 0;
+    }
+    .about-body {
+      padding: 0 30px;
+      color: #000 !important;
+    }
+    .about-body-subtitle {
+      font-size: 22px;
+      text-align: center;
+      font-weight: 200;
+      color: #777;
+    }
+
+    #apps {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .app {
+      padding: 0;
+      height: 160px;
+      border-bottom: 1px solid rgba(74, 171, 191, 0.85);
+    }
+    .app-background {
+      position: absolute;
+      font-size: 70px;
+      display: flex;
+      background-color: rgba(75, 171, 191, 0.7);
+      width: 100%;
+      height: 100%;
+      color: #eee;
+      font-weight: 100;
+      letter-spacing: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+    .blurb {
+      font-weight: 200;
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .app-background-text {
+      padding-right: 20px;
+      text-align: right;
+      max-width: 55%;
+    }
+    .app-content {
+      z-index: 2;
     }
 
     .app-grid {
@@ -237,9 +297,13 @@
     }
 
     .app-img {
-      height: 150px;
+      height: 120px;
+      position: absolute;
       border-radius: 4px;
+      left: 15px;
+      top: 15px;
     }
+
     #api {
      /* background-color: #D33A29;*/
     }
@@ -353,9 +417,14 @@
       padding-left: 10px;
       border-radius: 3px;
     }
-    n {
+    n, n > a {
       font-size: 25px;
       font-weight: 200;
+      color: inherit;
+    }
+    n > a:hover {
+      color: inherit;
+      font-weight: bolder;
     }
     t {
       font-weight: 400;
@@ -373,7 +442,9 @@
     #sharon {
       background-image: url("img/sharon.jpg");
     }
-
+    #john {
+      background-position: center;
+    }
     #publications {
       height: auto;
       padding-top: 15%;
@@ -497,6 +568,7 @@
       }
       .title {
         margin-top: 0;
+        margin-right: 1em;
       }
       .app-grid {
         width: 100%;
@@ -576,11 +648,12 @@
     <div class="snap-drawers">
       <div class="snap-drawer snap-drawer-right">
         <ul class="nav drawer">
+          <li class="drawer-menu"><a href="#about"><i class="fa fa-question"></i>  About</a></li>
           <li class="drawer-menu"><a href="#apps"><i class="fa fa-plane"></i>  Apps</a></li>
           <li class="drawer-menu"><a href="#api"><i class="fa fa-code"></i>  API</a></li>
           <li class="drawer-menu"><a href="#contact"><i class="fa fa-at"></i>  Contact</a></li>
           <li class="drawer-menu"><a href="#publications"><i class="fa fa-file-o"></i>  Publications</a></li>
-        </ul>  
+        </ul>
       </div>
     </div>
 
@@ -597,6 +670,7 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="#about">About</a></li>
             <li><a href="#apps">Apps</a></li>
             <li><a href="#api">API</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -607,14 +681,14 @@
     </div>
 
     <div id="snapContent" class="snap-content scrollable">
-  
+
       <div class="container-fluid">
         <div class="row slide main">
           <div class="col-xs-12 slide-container">
             <div class="slide-content slide-content-padded">
               <div class="title">
                 <h1 class="big">macrostrat.org</h1>
-                <p>Collaborative macrostratigraphic, lithological, and environmental data</p>
+                <p id="top-stats">Collaborative macrostratigraphic, lithological, and environmental data. </p>
                 <a type="button" class="btn btn-danger btn-lg explore-sift" href="/sift">Explore the data</a>
               </div>
             </div>
@@ -675,115 +749,147 @@
           </div>
         </div>
 
-        <div class="row slide" id="apps">
-          <div class="col-xs-12 slide-container">
-            <div class="slide-content slide-content-padded visible-sm visible-md visible-lg">
-              <div class="row">
-                <div class="col-sm-4 app-grid">
-                  <a href="/sift" class="app-grid-content">
-                    <div>
-                      <img class="app-img" id="sift" src="img/logo_red.png">
-                      <p>Sift</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-4 app-grid">
-                  <a href="/classic" class="app-grid-content">
-                    <div>
-                      <img class="app-img" id="macrostrat-classic" src="img/macrostrat_classic.png">
-                      <p>Macrostrat Classic</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-4 app-grid" id="app-title">
-                  <div class="page-title-holder app-grid-content">
-                    <h1 class="big apps">Apps</h1>
-                  </div>
+
+      <div class="row slide" id="about">
+        <div class="col-xs-12 slide-container">
+          <div class="slide-content slide-content-padded">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="page-title-holder about-title">
+                  <h1 class="big">About</h1>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-sm-4 app-grid">
-                  <a href="/gmna" class="app-grid-content">
-                    <div>
-                      <img class="app-img" id="gmna" src="img/gmna.jpg">
-                      <p>GMNA</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-4 app-grid">
-                  <a class="app-grid-content" href="https://itunes.apple.com/us/app/mancos/id541570878?mt=8" target="_blank">
-                    <div>
-                      <img class="app-img" id="mancos" src="img/mancos.jpg">
-                      <p>Mancos</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-4 app-grid">
-                  <a class="app-grid-content" href="http://fc.umn.edu/" target="_blank">
-                    <div>
-                      <img class="app-img" id="foc" src="img/foc.jpg">
-                      <p>Flyover Country</p>
-                    </div>
-                  </a>
-                </div>
+            </div>
+            <div class="row about-row">
+              <div class="col-sm-3 about-body-subtitle">
+                Summary
+              </div>
+              <div class="col-sm-9 about-body page-info">
+                Macrostrat aims to become a community resource for the addition, editing, and access of macrostratigraphic, lithological, environmental, and economic data. It is meant to facilitate the rigorous testing of hypotheses related to the spatial and temporal distribution of sedimentary, igneous, and metamorphic rocks and proxy data extracted from them, as well as facilitate teaching in the earth sciences.
               </div>
             </div>
 
-            <div class="slide-content slide-content-padded visible-xs">
-              <div class="row">
-                <div class="col-sm-4 app-grid" id="app-title">
-                  <div class="page-title-holder app-grid-content">
-                    <h1 class="big apps">Apps</h1>
-                  </div>
-                </div>
-                <div class="col-sm-4 app-grid">
-                  <a href="/sift" class="app-grid-content">
-                    <div>
-                      <img class="app-img" id="sift" src="img/logo_red.png">
-                      <p>Sift</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-4 app-grid">
-                  <a href="/classic" class="app-grid-content">
-                    <div>
-                      <img class="app-img" id="macrostrat-classic" src="img/macrostrat_classic.png">
-                      <p>Macrostrat Classic</p>
-                    </div>
-                  </a>
-                </div>
+            <div class="row about-row">
+              <div class="col-sm-3 about-body-subtitle">
+                License
               </div>
-              <div class="row">
-                <div class="col-sm-4 app-grid">
-                  <a href="/gmna" class="app-grid-content">
-                    <div>
-                      <img class="app-img" id="gmna" src="img/gmna.jpg">
-                      <p>GMNA</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-4 app-grid">
-                  <a class="app-grid-content" href="https://itunes.apple.com/us/app/mancos/id541570878?mt=8" target="_blank">
-                    <div>
-                      <img class="app-img" id="mancos" src="img/mancos.jpg">
-                      <p>Mancos</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-sm-4 app-grid">
-                  <a class="app-grid-content" href="http://fc.umn.edu/" target="_blank">
-                    <div>
-                      <img class="app-img" id="foc" src="img/foc.jpg">
-                      <p>Flyover Country</p>
-                    </div>
-                  </a>
-                </div>
+              <div class="col-sm-9 about-body page-info">
+                All data is provided under a Creative Commons Attribution 4.0 International license (<a href="http://creativecommons.org/licenses/by/4.0/">CC-BY-4.0</a>).
               </div>
             </div>
+
+            <div class="row about-row">
+              <div class="col-sm-3 about-body-subtitle">
+                Citation
+              </div>
+              <div class="col-sm-9 about-body page-info">
+                Please use the following citation - Citation goes here
+              </div>
+            </div>
+
+            <div class="row about-row">
+              <div class="col-sm-3 about-body-subtitle">
+                Funding
+              </div>
+              <div class="col-sm-9 about-body page-info">
+                Macrostrat is currently supported by NSF EAR-1150082 and NSF ICER-1440312
+              </div>
+            </div>
+
+            <div class="row about-row">
+              <div class="col-sm-3 about-body-subtitle">
+
+              </div>
+              <div class="col-sm-9 about-body page-info">
+
+              </div>
+            </div>
+
           </div>
         </div>
+      </div>
 
 
+      <div class="row slide" id="apps">
+        <div class="col-xs-12 slide-container">
+          <div class="row">
+            <div class="col-xs-12" id="app-title">
+              <h1 class="big apps">Apps</h1>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 app">
+              <a href="/sift">
+                <div class="app-background">
+                  <img class="app-img" id="sift" src="img/logo_red.png"/>
+                  <div class="app-background-text">
+                    Sift
+                    <p class="blurb">Explore all the data Macrostrat has to offer</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 app">
+              <a href="/classic">
+                <div class="app-background">
+                  <img class="app-img" id="macrostrat-classic" src="img/macrostrat_classic.png"/>
+                  <div class="app-background-text">
+                    Classic
+                    <p class="blurb">The original interface to the Macrostrat database</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 app">
+              <a href="/burwell">
+                <div class="app-background">
+                  <img class="app-img" id="gmna" src="img/gmna.jpg"/>
+                  <div class="app-background-text">
+                    Burwell
+                    <p class="blurb">Integrating the world's geologic maps with Macrostrat</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 app">
+              <a href="https://itunes.apple.com/us/app/mancos/id541570878?mt=8">
+                <div class="app-background">
+                  <img class="app-img" id="mancos" src="img/mancos.jpg"/>
+                  <div class="app-background-text">
+                    Mancos
+                    <p class="blurb">Explore Macrostrat from your iOS device</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 app">
+              <a href="http://fc.umn.edu/">
+                <div class="app-background">
+                  <img class="app-img" src="img/foc.jpg"/>
+                  <div class="app-background-text">
+                    FOC
+                    <p class="blurb">The glass bottom jet for earth scientists</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
 
         <div class="row slide" id="api">
           <div class="col-xs-12 slide-container">
@@ -817,7 +923,7 @@
               <div class="row">
                 <div class="col-xs-12 person" id="shanan">
                   <div class="person-info">
-                    <n>Shanan Peters</n> <br>
+                    <n><a href="http://strata.geology.wisc.edu" target="_blank">Shanan Peters</a></n> <br>
                     <t>Principal Investigator</t> <br>
                     <e>peters@geology.wisc.edu</e> <br>
                   </div>
@@ -827,15 +933,15 @@
               <div class="row">
                 <div class="col-xs-6 person" id="john">
                   <div class="person-info">
-                    <n>John Czaplewski</n> <br>
+                    <n><a href="http://www.johnjcz.com" target="_blank">John Czaplewski</a></n> <br>
                     <t>Lead Developer</t> <br>
                     <e>jczaplewski@wisc.edu</e> <br>
                   </div>
                 </div>
                 <div class="col-xs-6 person" id="jon">
                   <div class="person-info">
-                    <n>Jon Husson</n> <br>
-                    <t>Researcher</t> <br>
+                    <n><a href="http://www.jonhusson.com" target="_blank">Jon Husson</a></n> <br>
+                    <t>Postdoctoral Researcher</t> <br>
                     <e>husson@wisc.edu</e> <br>
                   </div>
                 </div>
@@ -844,31 +950,31 @@
               <div class="row">
                 <div class="col-xs-6 person" id="andrew">
                   <div class="person-info">
-                    <n>Andrew Zaffos</n> <br>
-                    <t>Researcher</t> <br>
+                    <n><a href="http://andrewzaffos.weebly.com/" target="_blank">Andrew Zaffos</a></n> <br>
+                    <t>Postdoctoral Researcher</t> <br>
                     <e>azaffos@wisc.edu</e> <br>
                   </div>
                 </div>
                 <div class="col-xs-6 person" id="sharon">
                   <div class="person-info">
-                    <n>Sharon McMullen</n> <br>
+                    <n><a href="http://geoscience.wisc.edu/geoscience/people/student/?id=1007" target="_blank">Sharon McMullen</a></n> <br>
                     <t>Researcher</t> <br>
                     <e>skmcmullen@wisc.edu</e> <br>
                   </div>
                 </div>
               </div>
-            
+
               <div class="row">
                 <div class="col-xs-6 person" id="noel">
                   <div class="person-info">
-                    <n>Noel Heim</n> <br>
+                    <n><a href="http://sedpaleo.org" target="_blank">Noel Heim</a></n> <br>
                     <t>Researcher (former)</t> <br>
                     <e>nheim@geology.wisc.edu</e> <br>
                   </div>
                 </div>
                 <div class="col-xs-6 person" id="puneet">
                   <div class="person-info">
-                    <n>Puneet Kishor</n> <br>
+                    <n><a href="http://punkish.org" target="_blank">Puneet Kishor</a></n> <br>
                     <t>Generally Ignored</t> <br>
                     <e>punkish@eidesis.org</e> <br>
                   </div>
@@ -903,9 +1009,9 @@
                     <li>Butler, R.J. et al. 2011. Sea level, dinosaur diversity and sampling biases: investigating the ‘common cause’ hypothesis in the terrestrial realm. <em>Proc. Roy. Soc. London B</em> 278:1165-1170. <a href='http://rspb.royalsocietypublishing.org/content/278/1709/1165.abstract' target="_blank">[link]</a>.</li>
                     <li>Melott, A.L. and R.K. Bambach 2011. A ubquitous ~62-Myr periodic fluctuation superimposed on general trends in fossil biodiversity II. Evolutionary dynamics associated with period fluctuation in marine diversity. <em>Paleobiology</em> 37:369-382. <a href='http://paleobiol.geoscienceworld.org/cgi/content/abstract/37/3/383' target="_blank">[link]</a>.</li>
                     <li>Heim, N.A. and S.E. Peters. 2011. Regional environmental breadth predicts geographic range and longevity in fossil marine genera. <em>PLoS One</em> 6:(5) e18946; doi:10.1371/journal.pone.0018946 <a href='http://www.plosone.org/article/fetchObjectAttachment.action?uri=info%3Adoi%2F10.1371%2Fjournal.pone.0018946&representation=PDF' target="_blank">[PDF]</a>.</li>
-                    <li>Peters, S.E. and N.A. Heim. 2011. Macrostratigraphy and macroevolution in marine environments: testing the common-cause hypothesis. In, Smith, A.B., and A. McGowan, eds. Comparing the rock and fossil records: implications for biodiversity. 
+                    <li>Peters, S.E. and N.A. Heim. 2011. Macrostratigraphy and macroevolution in marine environments: testing the common-cause hypothesis. In, Smith, A.B., and A. McGowan, eds. Comparing the rock and fossil records: implications for biodiversity.
                     <em>Special Publication of the Geological Society of London</em> 358:95-104. doi: 10.1144/SP358.7. <a href='http://sp.lyellcollection.org/content/358/1/95.abstract' target="_blank">[link]</a></li>
-                    <li>Peters, S.E. and N.A. Heim. 2011. Macrostratigraphy and macroevolution in marine environments: testing the common-cause hypothesis. In, Smith, A.B., and A. McGowan, eds. Comparing the rock and fossil records: implications for biodiversity. 
+                    <li>Peters, S.E. and N.A. Heim. 2011. Macrostratigraphy and macroevolution in marine environments: testing the common-cause hypothesis. In, Smith, A.B., and A. McGowan, eds. Comparing the rock and fossil records: implications for biodiversity.
                     <em>Special Publication of the Geological Society of London</em> 358:95-104. doi: 10.1144/SP358.7. <a href='http://sp.lyellcollection.org/content/358/1/95.abstract' target="_blank">[link]</a></li>
                     <li>Peters, S.E. and N.A. Heim. 2011. The stratigraphic distribution of marine fossils in North America. <em>Geology</em> 39:259-262; doi: 10.1130/G31442.1. <a href='http://geology.geoscienceworld.org/cgi/content/full/39/3/259?ijkey=ziaWozfgcb82w&keytype=ref&siteid=gsgeology' target="_blank">[PDF]</a></li>
                     <li>Finnegan, S., S.E. Peters, and W.W. Fischer. 2011. Late Ordovician-Early Silurian selective extinction patterns in Laurentia and their relationship to climate change. In J.C. Gutiérrez-Marco, I. Rábano, and D. Garcia-Bellido, eds. <em>Ordovician of the World.</em> Cuadernos del Museo Geominera 14: 155-159.</li>
@@ -916,7 +1022,7 @@
                     <li>Marx, F.G. 2009. Marine mammals through time: when less is more in studying palaeodiversity. <em>Proceedings of the Royal Society of London B</em> 138:183-196. <a href='http://rspb.royalsocietypublishing.org/content/276/1658/887.abstract' target="_blank">[link]</a></li>
                     <li>McGowan, A.J., and A. Smith. 2008. Are global Phanerozoic marine diversity curves truly global? A study of the relationship between regional rock records and global Phanerozoic marine diversity. <em>Paleobiology</em> 34:80-103. <a href='http://paleobiol.geoscienceworld.org/cgi/content/abstract/34/1/80' target="_blank">[link]</a></li>
                     <li>Mayhew, P.J., G.B. Jenkins, and T.G. Benton. 2008. Long-term association between global temperature and biodiversity, origination and extinction in the fossil record. <em>Proceedings of the Royal Society of London B</em> 275:47-53. <a href='http://rspb.royalsocietypublishing.org/content/275/1630/47' target="_blank">[link]</a></li>
-                    <li>Peters, S.E. 2008. Environmental determinants of extinction selectivity in the fossil record. <em>Nature</em> 454:626-629. 
+                    <li>Peters, S.E. 2008. Environmental determinants of extinction selectivity in the fossil record. <em>Nature</em> 454:626-629.
                     <a href='http://strata.geology.wisc.edu/vita/reprints/Peters2008.pdf' target="_blank">[PDF]</a> <a href='http://strata.geology.wisc.edu/vita/reprints/Peters2008sup.pdf' target="_blank">[supplement]</a></li>
                     <li>Peters, S.E. 2008. Macrostratigraphy and its promise for paleobiology. Pp. 205-232 <em>In</em> P.H. Kelley and R.K. Bambach, eds. From evolution to geobiology: research questions driving paleontology at the start of a new century. The Paleontological Society Papers, Vol. 14. 9.<a href='http://strata.geology.wisc.edu/vita/reprints/Peters2008b.pdf' target="_blank">[PDF]</a></li>
                     <li>Peters, S.E. and W.I. Ausich. 2008. A sampling-standardized macroevolutionary history for Ordovician-Early Silurian crinoids. <em>Paleobiology</em> 34:104-116. <a href='http://strata.geology.wisc.edu/vita/reprints/Peters&Ausich2008.pdf' target="_blank">[PDF]</a></li>
@@ -939,6 +1045,7 @@
             </div>
             <div class="col-sm-4" id="bottom-nav">
               <ul class="nav footer-nav">
+                <li><a href="#about">About</a></li>
                 <li><a href="#apps">Apps</a></li>
                 <li><a href="#api">API</a></li>
                 <li><a href="#contact">Contact</a></li>
