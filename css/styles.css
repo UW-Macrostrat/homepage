@@ -692,6 +692,12 @@ e {
   .funding-line {
     display: block;
   }
+  .stat-row {
+    height: 100%;
+  }
+  .stat {
+    height: 50%;
+  }
 }
 @media(max-width: 450px) {
   .logo {
@@ -740,4 +746,5 @@ e {
     justify-content: flex-start;
     align-items: center;
   }
+
 }
