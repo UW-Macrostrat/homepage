@@ -1,9 +1,4 @@
 (function() {
-  /* Via http://stackoverflow.com/questions/4817029/whats-the-best-way-to-detect-a-touch-screen-device-using-javascript */
-  function is_touch_device() {
-    return 'ontouchstart' in window || 'onmsgesturechange' in window;
-  };
-
   function addCommas(obj) {
     function commaize(x) {
       x = parseInt(x);
@@ -22,13 +17,6 @@
       return commaize(obj);
     }
   }
-
-  $(document).ready(function() {
-    if (is_touch_device()) {
-
-    }
-  });
-
 
   var snapper = new Snap({
     element: document.getElementById("snapContent"),
@@ -62,7 +50,7 @@
 
   $(window).on("resize", checkWindowSize);
 
-  $.getJSON("//dev.macrostrat.org/api/stats?all", function(data) {
+  $.getJSON("https://macrostrat.org/api/v2/stats?all", function(data) {
     var summary = {
         columns: 0,
         packages: 0,
