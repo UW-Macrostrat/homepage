@@ -71,7 +71,7 @@
     }
     summary.t_polygons = data.success.data[0].t_polys;
 
-    $("#top-stats").html($("#top-stats").html() + addCommas(summary.columns) + " columns, " + addCommas(summary.packages) + " packages, " + addCommas(summary.units) + " units, and " + addCommas(summary.t_polygons) + " geologic map polygons");
+    $("#top-stats").html($("#top-stats").html() + addCommas(summary.columns) + " regions, " + addCommas(summary.units) + " rock units, " + addCommas(summary.t_polygons) + " geologic map polygons");
   });
 
   window.addEventListener("load", function() {
