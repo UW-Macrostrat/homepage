@@ -56,7 +56,8 @@
         packages: 0,
         units: 0,
         collections: 0,
-        measurements: 0
+        measurements: 0,
+        t_polygons: 0
       }
     for (var i = 0; i < data.success.data.length; i++) {
       summary.columns += data.success.data[i].columns;
@@ -68,8 +69,9 @@
       var place = data.success.data[i].project.toLowerCase().replace(" ", "-");
       $("#" + place + "-stats").html(addCommas(data.success.data[i].packages) + " packages. " + addCommas(data.success.data[i].units) + " units. " + addCommas(data.success.data[i].pbdb_collections) + " collections.");
     }
+    summary.t_polygons = data.success.data[0].t_polys;
 
-    $("#top-stats").html($("#top-stats").html() + addCommas(summary.columns) + " columns, " + addCommas(summary.packages) + " packages, and " + addCommas(summary.units) + " units");
+    $("#top-stats").html($("#top-stats").html() + addCommas(summary.columns) + " columns, " + addCommas(summary.packages) + " packages, " + addCommas(summary.units) + " units, and " + addCommas(summary.t_polygons) + " geologic map polygons");
   });
 
   window.addEventListener("load", function() {
