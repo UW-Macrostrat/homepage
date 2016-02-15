@@ -7,7 +7,22 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
 
+#donate-title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}
 .snap-content {
   position: absolute;
   top: 0;
@@ -194,6 +209,10 @@ a:hover {
   border-color: #990000;
   margin-top: 10px;
 }
+.explore-sift.btn-info {
+  background-color: #015EAB;
+  border-color: #015EAB;
+}
 .stats {
   color: white;
 }
@@ -324,6 +343,7 @@ a:hover {
 #apps {
   max-width: 900px;
   margin: 0 auto;
+  height: auto;
 }
 .app {
   padding: 0;
@@ -467,6 +487,9 @@ a:hover {
   font-size: 18px;
   line-height: 28px;
   font-weight: 200;
+}
+.page-info.donate {
+  color: #333;
 }
 .page-info > a {
   color: #4bab7f;
@@ -704,6 +727,13 @@ e {
   }
 }
 @media(max-width: 450px) {
+  .row-eq-height {
+    display: block;
+  }
+  #donate-title-container {
+    position: relative;
+    margin-bottom: 15px;
+  }
   .logo {
     height: 40px;
     padding-left: 10px;
