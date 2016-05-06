@@ -769,6 +769,7 @@ e {
   .page-info.donate {
     font-size: 15px;
     margin-bottom: 25px;
+    font-weight: 400;
   }
 }
 @media(max-width: 450px) {
