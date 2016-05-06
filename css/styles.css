@@ -589,13 +589,13 @@ e {
     background-image: url("../img/north_america.jpg");
   }
   .caribbean {
-    background-image: url("../img/caribbean.jpg");
+    background-image: url("../img/caribbean_new.jpg");
   }
   .new-zealand {
-    background-image: url("../img/new_zealand.jpg");
+    background-image: url("../img/new_zealand_new.jpg");
   }
   .deep-sea {
-    background-image: url("../img/deep_sea.jpg");
+    background-image: url("../img/deep_sea_new.jpg");
   }
   #john {
     background-image: url("../img/john.jpg");
@@ -623,13 +623,13 @@ e {
     background-image: url("../img/north_america_med.jpg");
   }
   .caribbean {
-    background-image: url("../img/caribbean_med.jpg");
+    background-image: url("../img/caribbean_new_medium.jpg");
   }
   .new-zealand {
-    background-image: url("../img/new_zealand_med.jpg");
+    background-image: url("../img/new_zealand_new_medium.jpg");
   }
   .deep-sea {
-    background-image: url("../img/deep_sea_med.jpg");
+    background-image: url("../img/deep_sea_new_medium.jpg");
   }
   #john {
     background-image: url("../img/john_med.jpg");
@@ -660,13 +660,13 @@ e {
     background-image: url("../img/north_america_small.jpg");
   }
   .caribbean {
-    background-image: url("../img/caribbean_small.jpg");
+    background-image: url("../img/caribbean_new_small.jpg");
   }
   .new-zealand {
-    background-image: url("../img/new_zealand_small.jpg");
+    background-image: url("../img/new_zealand_new_small.jpg");
   }
   .deep-sea {
-    background-image: url("../img/deep_sea_small.jpg");
+    background-image: url("../img/deep_sea_new_small.jpg");
   }
   .big {
     font-size: 50px;
