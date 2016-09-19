@@ -637,6 +637,9 @@ e {
     background-image: url("../img/andrew.jpg");
     background-position: 0 -35px, center;
   }
+  #erika {
+    background-image: url("../img/erika.jpg");
+  }
 }
 @media(max-width: 992px) {
   .snap-drawers {
@@ -670,6 +673,9 @@ e {
   #andrew {
     background-image: url("../img/andrew_med.jpg");
     background-position: 0 0;
+  }
+  #erika {
+    background-image: url("../img/erika_med.jpg");
   }
   #jon {
     background-position: 0 0;
@@ -750,6 +756,9 @@ e {
   }
   #donate {
     background-image: url("../img/donate_small.jpg");
+  }
+  #erika {
+    background-image: url("../img/erika_low.jpg");
   }
   .funding {
     display: block;
