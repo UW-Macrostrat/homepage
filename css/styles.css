@@ -165,7 +165,7 @@ a:hover {
 }
 .close-to-top {
   background-color: #015EAB;
-  opacity: 0.92;
+  opacity: 1;
 }
 #second-nav {
   background-color: #193441;
@@ -212,6 +212,18 @@ a:hover {
 .explore-sift.btn-info {
   background-color: #015EAB;
   border-color: #015EAB;
+}
+.rockd-button-container {
+  display: flex;
+  align-items: center;
+}
+.explore-sift.rockd {
+  background-color: #363434;
+  border-color: #363434;
+}
+.rockd-logo-small {
+  height: 21px;
+  margin-right: 5px;
 }
 .stats {
   color: white;
