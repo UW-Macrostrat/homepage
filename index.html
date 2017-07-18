@@ -62,12 +62,25 @@
 
       <div class="container-fluid">
         <div class="row slide main">
-          <div class="col-xs-12 slide-container">
+          <div class="col-xs-12 slide-container welcome">
             <div class="slide-content slide-content-padded">
               <div class="title">
                 <h1 class="big">Macrostrat</h1>
                 <p>A collaborative platform for geological data exploration and integration</p>
-                <p id="top-stats"></p>
+                <di class="row">
+                  <div class="col-sm-3 col-sm-offset-1 top-stat-col">
+                    <span class="top-stat" id="n_columns">1,400</span>
+                    <span class="top-stat-label">regional rock columns</span>
+                  </div>
+                  <div class="col-sm-3 top-stat-col">
+                    <span class="top-stat" id="n_units">33,903</span>
+                    <span class="top-stat-label">rock units</span>
+                  </div>
+                  <div class="col-sm-3 top-stat-col">
+                    <span class="top-stat" id="n_polys">2,500,000</span>
+                    <span class="top-stat-label">geologic map polygons</span>
+                  </div>
+                </div>
                 <a type="button" class="btn btn-danger btn-lg explore-sift" href="/sift/#/">Search</a>
                 <a type="button" class="btn btn-danger btn-lg explore-sift" href="/map/#3/40.78/-94.13">Geologic Map</a>
                 <div type="button" class="btn btn-danger btn-lg explore-sift rockd" onclick="window.location='https://rockd.org'">

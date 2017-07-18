@@ -296,16 +296,33 @@ a:hover {
   padding-right: 10%;
 }
 
+.welcome {
+  background-color: rgba(0,0,0,0.3);
+  text-align: center;
+}
 .title {
   margin-left: 1em;
   margin-top: -6em;
-  background-color: rgba(0,0,0,0.3);
   padding: 40px;
   border-radius: 20px;
 }
 
 .title > p {
   color: #f7f7f7;
+  font-size: 20px;
+  font-weight: 300;
+}
+.top-stat, .top-stat-label {
+  display: block;
+  color: #f7f7f7;
+  font-size: 20px;
+}
+.top-stat {
+  font-weight: 600;
+}
+.top-stat-label {
+  font-size: 16px;
+  font-weight: 300;
 }
 .big {
   font-size: 75px;
@@ -700,6 +717,9 @@ e {
   }
 }
 @media(max-width: 768px) {
+  .top-stat-col {
+    margin-top: 15px;
+  }
   .logo {
     margin-left: 10px;
   }
