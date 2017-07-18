@@ -632,7 +632,10 @@ e {
   padding: 25px;
   border-radius: 5px;
 }
-
+.burwell-title {
+  text-align: center;
+  color: #000000;
+}
 @media(max-width: 1200px), (min-width: 1200px) {
   .snap-drawers {
     display: none;
