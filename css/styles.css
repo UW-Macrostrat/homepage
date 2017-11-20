@@ -584,6 +584,9 @@ e {
   background-image: url("../img/sharon.jpg");
   background-position-y: -45px;
 }
+#victoria {
+  background-image: url("../img/victoria.jpg");
+}
 #john {
   background-position: center;
 }
