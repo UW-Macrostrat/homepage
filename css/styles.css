@@ -579,6 +579,21 @@ e {
 #daven {
   background-image: url("../img/daven.jpg");
 }
+#afiqah {
+  background-image: url("../img/afiqah.jpg");
+}
+#daniel {
+  background-image: url("../img/daniel.jpg");
+}
+#shan {
+  background-image: url("../img/shan.jpg");
+}
+#michael {
+  background-image: url("../img/michael.jpg");
+}
+#ben {
+  background-image: url("../img/ben.jpg");
+}
 #jon {
   background-image: url("../img/jon.jpg");
   background-position-y: -45px;
@@ -599,7 +614,7 @@ e {
   padding-bottom: 100px;
 }
 .pub-list {
-  counter-reset: pub-counter 47;
+  counter-reset: pub-counter 49;
   list-style: none;
 }
 .pub-list li {
