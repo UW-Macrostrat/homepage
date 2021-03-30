@@ -329,6 +329,9 @@ a:hover {
   color: #E0E1E6;
   font-family: "Maven Pro", sans-serif;
 }
+.nohighlight a{
+  color: white;
+}
 
 .stats > .slide-container {
   text-align: center;
