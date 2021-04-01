@@ -579,8 +579,14 @@ e {
 #shanan {
   background-image: url("../img/shanan.jpg");
 }
+#shanan_wide {
+  background-image: url("../img/shanan_wide.jpg");
+}
 #daven {
   background-image: url("../img/daven.jpg");
+}
+#casey {
+  background-image: url("../img/casey.jpg");
 }
 #afiqah {
   background-image: url("../img/afiqah.jpg");
