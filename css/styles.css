@@ -626,7 +626,7 @@ e {
   padding-bottom: 100px;
 }
 .pub-list {
-  counter-reset: pub-counter 62;
+  counter-reset: pub-counter 64;
   list-style: none;
 }
 .pub-list li {
